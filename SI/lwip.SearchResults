@@ -1,0 +1,61 @@
+---- OSIntNesting Matches (60 in 15 files) ----
+Isr.c (src\dev):    OSIntNesting++;
+Isr.c (src\dev):    OSIntNesting++;
+Isr.c (src\dev):    OSIntNesting++;
+Isr.c (src\dev):    OSIntNesting++;
+Isr.c (src\dev):    OSIntNesting++;
+Os_core.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_core.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_core.c (src\ucosii):    if (OSIntNesting  > 0) {                            /* See if called from ISR ...                  */
+Os_core.c (src\ucosii):*              2) Your ISR can directly increment OSIntNesting without calling this function because
+Os_core.c (src\ucosii):*                 OSIntNesting has been declared 'global'.
+Os_core.c (src\ucosii):*              3) You MUST still call OSIntExit() even though you increment OSIntNesting directly.
+Os_core.c (src\ucosii):        if (OSIntNesting < 255u) {
+Os_core.c (src\ucosii):            OSIntNesting++;                      /* Increment ISR nesting level                        */
+Os_core.c (src\ucosii):        if (OSIntNesting > 0) {                            /* Prevent OSIntNesting from wrapping       */
+Os_core.c (src\ucosii):            OSIntNesting--;
+Os_core.c (src\ucosii):        if (OSIntNesting == 0) {                           /* Reschedule only if all ISRs complete ... */
+Os_core.c (src\ucosii):        if (OSIntNesting == 0) {                 /* Can't call from an ISR                             */
+Os_core.c (src\ucosii):                if (OSIntNesting == 0) {                   /* ... not in an ISR                        */
+Os_core.c (src\ucosii):    OSIntNesting  = 0;                                     /* Clear the interrupt nesting counter      */
+Os_core.c (src\ucosii):    if (OSIntNesting == 0) {                           /* Schedule only if all ISRs done and ...       */
+Os_cpu_a.asm (src\ucosii):    EXTERN  OSIntNesting
+Os_dbg.c (src\ucosii):                                           + sizeof(OSIntNesting)
+Os_flag.c (src\ucosii):    if (OSIntNesting > 0) {                         /* See if called from ISR ...                      */
+Os_flag.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_flag.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_flag.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_flag.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_mbox.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if called from ISR ...                         */
+Os_mbox.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_mbox.c (src\ucosii):    if (OSIntNesting > 0) {                           /* See if called from ISR ...                    */
+Os_mem.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_mem.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_mutex.c (src\ucosii):    if (OSIntNesting > 0) {                            /* Make sure it's not called from an ISR        */
+Os_mutex.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_mutex.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_mutex.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_mutex.c (src\ucosii):    if (OSIntNesting > 0) {                           /* See if called from ISR ...                    */
+Os_mutex.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_q.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if called from ISR ...                         */
+Os_q.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_q.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if called from ISR ...                         */
+Os_sem.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_sem.c (src\ucosii):    if (OSIntNesting > 0) {                                /* See if called from ISR ...               */
+Os_sem.c (src\ucosii):    if (OSIntNesting > 0) {                           /* See if called from ISR ...                    */
+Os_task.c (src\ucosii):    if (OSIntNesting > 0) {                  /* Make sure we don't create the task from within an ISR  */
+Os_task.c (src\ucosii):    if (OSIntNesting > 0) {                  /* Make sure we don't create the task from within an ISR  */
+Os_task.c (src\ucosii):    if (OSIntNesting > 0) {                             /* See if trying to delete from ISR            */
+Os_task.c (src\ucosii):    if (OSIntNesting > 0) {                              /* See if trying to call from an ISR          */
+Os_task.c (src\ucosii):    if (OSIntNesting > 0) {                          /* See if trying to call from an ISR              */
+Os_time.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_time.c (src\ucosii):    if (OSIntNesting > 0) {                      /* See if trying to call from an ISR                  */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                                 /* See if trying to call from an ISR                      */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                                 /* See if trying to call from an ISR                      */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                            /* See if trying to call from an ISR                           */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                            /* See if trying to call from an ISR                           */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                            /* See if trying to call from an ISR                           */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                                 /* See if trying to call from an ISR                      */
+Os_tmr.c (src\ucosii):    if (OSIntNesting > 0) {                                       /* See if trying to call from an ISR                */
+Stm32f10x_it.c (src):    OSIntNesting++;
+Ucos_ii.h (src\ucosii):OS_EXT  INT8U             OSIntNesting;             /* Interrupt nesting level                         */

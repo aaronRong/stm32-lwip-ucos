@@ -1,0 +1,9 @@
+..\list\netdb.o: ..\src\LwIP\src\api\netdb.c
+..\list\netdb.o: ..\src\LwIP\src\include\lwip/netdb.h
+..\list\netdb.o: ..\src\LwIP\src\include\lwip/opt.h
+..\list\netdb.o: ..\src\LwIP\port\lwipopts.h
+..\list\netdb.o: ..\src\LwIP\src\include\lwip/debug.h
+..\list\netdb.o: ..\src\LwIP\src\include\lwip/arch.h
+..\list\netdb.o: ..\src\LwIP\port\arch/cc.h
+..\list\netdb.o: ..\src\LwIP\port\arch/cpu.h
+..\list\netdb.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -1,0 +1,15 @@
+..\list\os_cpu_c.o: ..\src\UCOSII\os_cpu_c.c
+..\list\os_cpu_c.o: ..\src\UCOSII\ucos_ii.h
+..\list\os_cpu_c.o: ..\src\App\app_cfg.h
+..\list\os_cpu_c.o: ..\src\UCOSII\os_cfg.h
+..\list\os_cpu_c.o: ..\src\UCOSII\os_cpu.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\stm32f10x.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\core_cm3.h
+..\list\os_cpu_c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\system_stm32f10x.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\stm32f10x_conf.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\stm32f10x_gpio.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\stm32f10x.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\stm32f10x_rcc.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\stm32f10x_usart.h
+..\list\os_cpu_c.o: ..\src\STM32Lib\misc.h
