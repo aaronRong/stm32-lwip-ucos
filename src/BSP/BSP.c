@@ -27,9 +27,12 @@ void BSP_Init(void)
 {
 	SystemInit();   /* 配置系统时钟为72M */
 	BSP_LedInit();
+	BSP_RelayInit();
+#if 0
 	BSP_UsartInit();
 	BSP_EthernetInit();
 	BSP_NVICConfiguration();
+#endif
 }
 
 /*
@@ -50,6 +53,37 @@ void BSP_LedInit(void)
 	gpio_init.GPIO_Mode  = GPIO_Mode_Out_PP;
 	GPIO_Init(GPIOD, &gpio_init);
 	GPIO_SetBits(GPIOD, GPIO_Pin_2|GPIO_Pin_4);
+}
+
+/*
+*
+*/
+void BSP_RelayInit(void)
+{
+	GPIO_InitTypeDef  gpio_init;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, ENABLE);
+
+	gpio_init.GPIO_Pin   = GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13;
+	gpio_init.GPIO_Speed = GPIO_Speed_50MHz;
+	gpio_init.GPIO_Mode  = GPIO_Mode_Out_PP;
+	GPIO_Init(GPIOE, &gpio_init);
+	GPIO_SetBits(GPIOE, GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13);
+}
+
+/*
+*
+*/
+void BSP_Relay_ON(uint16_t pin_id)
+{
+	GPIO_SetBits(GPIOE, pin_id);
+}
+/*
+*
+*/
+void BSP_Relay_OFF(uint16_t pin_id)
+{
+	GPIO_ResetBits(GPIOE, pin_id);
 }
 
 /*

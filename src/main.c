@@ -49,9 +49,33 @@ static  void            App_TaskStart                (void       *p_arg);
 * Note(s)     : none.
 *********************************************************************************************************
 */
+void delay(void)
+{
+	uint32_t i, j;
+
+	for(i = 0; i < 1000; i++)
+		for(j = 0; j < 1000; j++);
+}
 
 int  main (void)
 {
+	BSP_Init();
+	
+	while(1)
+	{
+		BSP_Relay_ON(GPIO_Pin_11);
+		BSP_Relay_ON(GPIO_Pin_12);
+		BSP_Relay_ON(GPIO_Pin_13);
+		delay();
+		
+		BSP_Relay_OFF(GPIO_Pin_11);
+		BSP_Relay_OFF(GPIO_Pin_12);
+		BSP_Relay_OFF(GPIO_Pin_13);
+		delay();
+	}
+	
+	
+#if 0
     //BSP_IntDisAll();                                            /* Disable all interrupts until we are ready to accept them */
 	
     OSInit();                                         /* Initialize "uC/OS-II, The Real-Time Kernel"              */
@@ -69,6 +93,7 @@ int  main (void)
 
 
     OSStart();      /* Start multitasking (i.e. give control to uC/OS-II)       */
+#endif
 }
 
 /*
