@@ -71,23 +71,23 @@ void App_TaskCreate(void)
  */
 static void App_TaskToggleLED(void *p_arg)
 {
-  (void)p_arg;
-	
-  while(1)
-  {
-    BSP_LedToggle();
-    OSTimeDlyHMSM(0, 0, 1, 0);
-  }
+	(void)p_arg;
+
+	while(1)
+	{
+		BSP_LedToggle();
+		OSTimeDlyHMSM(0, 0, 1, 0);
+	}
 }
 
 static void App_TaskToggleLED1(void *p_arg)
 {
-  (void)p_arg;
-	
-  while(1)
-  {
-    BSP_Led1Toggle();
-    OSTimeDlyHMSM(0, 0, 0, 500);
-  }
+	(void)p_arg;
+
+	while(1)
+	{
+		BSP_Led1Toggle();
+		OSTimeDlyHMSM(0, 0, 0, 500);
+	}
 }
 

@@ -92,21 +92,20 @@ int  main (void)
 static  void  App_TaskStart (void *p_arg)
 {   
 
-    (void)p_arg;                                                /* See Note #1                                              */
+	(void)p_arg;                                                /* See Note #1                                              */
 
-    BSP_Init();                                                 /* Initialize BSP functions                                 */
-    
-
-    SysTick_Init();                                             /* Initialize the SysTick.                              */
+	BSP_Init();                                                 /* Initialize BSP functions                                 */
+	
+	SysTick_Init();                                             /* Initialize the SysTick.                              */
 
 // #if (OS_TASK_STAT_EN > 0)
 //     OSStatInit();                                               /* Determine CPU capacity                                   */
 // #endif
-    printf("\r\n uC/OS-II Usart MsgQueue Demo \r\n");
+	printf("\r\n uC/OS-II Usart MsgQueue Demo \r\n");
 	Init_LwIP();
 	
-        App_TaskCreate();                                           /* Create application tasks                                 */
+	App_TaskCreate();                                           /* Create application tasks                                 */
 	tcpServerInit();
-	 tcpserv(0);
+	tcpserv(0);
 	OSTaskDel(OS_PRIO_SELF);
 }

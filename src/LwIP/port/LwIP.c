@@ -136,10 +136,10 @@ void Init_LwIP(void)
     netmask.addr = 0;
     gw.addr = 0;
 #else
-    /* ∆Ù”√æ≤Ã¨IP */
-  IP4_ADDR(&ipaddr, 192, 168, 1, 8);
-  IP4_ADDR(&netmask, 255, 255, 255, 0);
-  IP4_ADDR(&gw, 192, 168, 1, 1);
+	/* ∆Ù”√æ≤Ã¨IP */
+	IP4_ADDR(&ipaddr, 192, 168, 1, 8);
+	IP4_ADDR(&netmask, 255, 255, 255, 0);
+	IP4_ADDR(&gw, 192, 168, 1, 1);
 #endif
     
     Set_MAC_Address(macaddress);
@@ -158,6 +158,6 @@ void Init_LwIP(void)
 */
 void LwIP_Pkt_Handle(void)
 {
-  /* Read a received packet from the Ethernet buffers and send it to the lwIP for handling */
-  ethernetif_input(&netif);
+	/* Read a received packet from the Ethernet buffers and send it to the lwIP for handling */
+	ethernetif_input(&netif);
 }
