@@ -1,9 +1,0 @@
-..\list\inet.o: ..\src\LwIP\src\core\ipv4\inet.c
-..\list\inet.o: ..\src\LwIP\src\include\lwip/opt.h
-..\list\inet.o: ..\src\LwIP\port\lwipopts.h
-..\list\inet.o: ..\src\LwIP\src\include\lwip/debug.h
-..\list\inet.o: ..\src\LwIP\src\include\lwip/arch.h
-..\list\inet.o: ..\src\LwIP\port\arch/cc.h
-..\list\inet.o: ..\src\LwIP\port\arch/cpu.h
-..\list\inet.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\list\inet.o: ..\src\LwIP\src\include\ipv4\lwip/inet.h

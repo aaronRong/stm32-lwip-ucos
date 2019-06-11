@@ -1,5 +1,0 @@
--c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\App -I..\src\BSP -I..\src\dev -I..\src\STM32Lib -I..\src\ETHLib\inc -I..\src\LwIP\port -I..\src\LwIP\port\arch -I..\src\UCOSII -I..\src\lwip-1.3.1\port -I..\src\lwip-1.3.1\src\include -I..\src\lwip-1.3.1\src\include\ipv4 -I..\src\lwip-1.3.1\src\include\lwip -I..\src\lwip-1.3.1\src\include\netif 
--I "D:\Program Files\RVMDK\ARM\RV31\INC" 
--I "D:\Program Files\RVMDK\ARM\CMSIS\Include" 
--I "D:\Program Files\RVMDK\ARM\Inc\ST\STM32F10x" 
--o "..\List\loopif.o" --omf_browse "..\List\loopif.crf" --depend "..\List\loopif.d" "..\src\lwip-1.3.1\src\netif\loopif.c"

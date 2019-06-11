@@ -1,5 +1,0 @@
--c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections --signed_chars -I..\src -I..\src\ETHLib\inc -I..\src\STM32Lib -I..\src\UCOSII -I..\src\BSP -I..\src\App -I..\src\LwIP\port -I..\src\LwIP\port\arch -I..\src\LwIP\src\include -I..\src\LwIP\src\include\ipv4 -I..\src\LwIP\src\include\lwip -I..\src\LwIP\src\include\netif -I..\src\LwIP\src\include\ipv4\lwip -I..\src\dev 
--I "D:\Program Files\RVMDK\ARM\RV31\INC" 
--I "D:\Program Files\RVMDK\ARM\CMSIS\Include" 
--I "D:\Program Files\RVMDK\ARM\Inc\ST\STM32F10x" 
--o "..\List\asn1_enc.o" --omf_browse "..\List\asn1_enc.crf" --depend "..\List\asn1_enc.d" "..\src\LwIP\src\core\snmp\asn1_enc.c"
