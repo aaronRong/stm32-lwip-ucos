@@ -3,8 +3,8 @@
 
 #define DP83848_PHY        /* Ethernet pins mapped on STM32F107 Board */
 #define PHY_ADDRESS       0x01 /* Relative to STM32F107 Board */
-//#define MII_MODE
-#define RMII_MODE          // STM32F107 connect PHY using RMII mode
+#define MII_MODE
+//#define RMII_MODE          // STM32F107 connect PHY using RMII mode
 
 /*
 *********************************************************************************************************
@@ -28,7 +28,7 @@ void BSP_Init(void)
 	SystemInit();   /* 配置系统时钟为72M */
 	BSP_LedInit();
 	BSP_RelayInit();
-#if 0
+#if 1
 	BSP_UsartInit();
 	BSP_EthernetInit();
 	BSP_NVICConfiguration();
@@ -245,7 +245,7 @@ static void BSP_EthernetInit(void)
 	- ETH_MII_RX_ER: PB10 */
 
 	/* ETHERNET pins remapp in STM3210C-EVAL board: RX_DV and RxD[3:0] */
-	GPIO_PinRemapConfig(GPIO_Remap_ETH, ENABLE);
+	GPIO_PinRemapConfig(GPIO_Remap_ETH, ENABLE);		//todo:????
 
 	/* Configure PA0, PA1 and PA3 as input */
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_3;
@@ -271,21 +271,22 @@ static void BSP_EthernetInit(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_Init(GPIOD, &GPIO_InitStructure); /**/
 
-	/* ADC Channel14 config --------------------------------------------------------*/
+/* ADC Channel14 config -------------------------------------------------------- todo:??? */
 	/* Relative to STM3210D-EVAL Board   */
 	/* Configure PC.04 (ADC Channel14) as analog input -------------------------*/
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
-	/* MCO pin configuration------------------------------------------------- */
+/* MCO pin configuration------------------------------------------------- todo:????*/
 	/* Configure MCO (PA8) as alternate function push-pull */
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	
+	/* ethernet configuration */
 	Ethernet_Configuration();
-
 }
 
 
@@ -300,16 +301,16 @@ static void Ethernet_Configuration(void)
 	ETH_InitTypeDef ETH_InitStructure;
 
 	/* MII/RMII Media interface selection ------------------------------------------*/
-	#ifdef MII_MODE /* Mode MII with STM3210C-EVAL  */
+#ifdef MII_MODE /* Mode MII with STM3210C-EVAL  */
 	GPIO_ETH_MediaInterfaceConfig(GPIO_ETH_MediaInterface_MII);
-
+#if 0
 	/* Get HSE clock = 25MHz on PA8 pin (MCO) */
 	RCC_MCOConfig(RCC_MCO_HSE);
-
-	#elif defined RMII_MODE  /* Mode RMII with STM3210C-EVAL */
+#endif
+#elif defined RMII_MODE  /* Mode RMII with STM3210C-EVAL */
 	GPIO_ETH_MediaInterfaceConfig(GPIO_ETH_MediaInterface_RMII);
-
-	/* Set PLL3 clock output to 50MHz (25MHz /5 *10 =50MHz) */
+#if 0
+	/* Set PLL3 clock output to 50MHz (25MHz /5 *10 =50MHz) phy??? */
 	RCC_PLL3Config(RCC_PLL3Mul_10);
 	/* Enable PLL3 */
 	RCC_PLL3Cmd(ENABLE);
@@ -317,9 +318,10 @@ static void Ethernet_Configuration(void)
 	while (RCC_GetFlagStatus(RCC_FLAG_PLL3RDY) == RESET)
 	{}
 
-	/* Get PLL3 clock on PA8 pin (MCO) */
+	/* Get PLL3 clock on PA8 pin (MCO) todo:??? */
 	RCC_MCOConfig(RCC_MCO_PLL3CLK);
-	#endif
+#endif
+#endif
 
 	/* Reset ETHERNET on AHB Bus */
 	ETH_DeInit();

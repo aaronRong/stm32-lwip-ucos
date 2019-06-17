@@ -157,9 +157,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>122</LineNumber>
+          <LineNumber>134</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218178</Address>
+          <Address>134218136</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -168,14 +168,14 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\src\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\meter\../src/main.c\122</Expression>
+          <Expression>\\meter\../src/main.c\134</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
           <LineNumber>332</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134225364</Address>
+          <Address>134225320</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -189,20 +189,44 @@
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>66</LineNumber>
+          <LineNumber>133</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218116</Address>
+          <Address>134220964</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\src\main.c</Filename>
+          <Filename>..\src\tcpserver.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\meter\../src/main.c\66</Expression>
+          <Expression>\\meter\../src/tcpserver.c\133</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>116</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134220212</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\src\dev\devTcpSvr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\meter\../src/dev/devTcpSvr.c\116</Expression>
         </Bp>
       </Breakpoint>
+      <MemoryWindow1>
+        <Mm>
+          <WinNumber>1</WinNumber>
+          <SubType>8</SubType>
+          <ItemText>RS232_send_data</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -245,6 +269,12 @@
       <pszMrulep></pszMrulep>
       <pSingCmdsp></pSingCmdsp>
       <pMultCmdsp></pMultCmdsp>
+      <SystemViewers>
+        <Entry>
+          <Name>System Viewer\ETHERNET_DMA</Name>
+          <WinId>35905</WinId>
+        </Entry>
+      </SystemViewers>
     </TargetOption>
   </Target>
 
@@ -282,7 +312,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>3</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\BSP\BSP.c</PathWithFileName>
@@ -330,7 +360,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>7</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\tcpserver.c</PathWithFileName>

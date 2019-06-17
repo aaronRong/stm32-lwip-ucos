@@ -59,6 +59,7 @@ void delay(void)
 
 int  main (void)
 {
+#if 0
 	BSP_Init();
 	
 	while(1)
@@ -73,9 +74,9 @@ int  main (void)
 		BSP_Relay_OFF(GPIO_Pin_13);
 		delay();
 	}
+#endif	
 	
-	
-#if 0
+#if 1
     //BSP_IntDisAll();                                            /* Disable all interrupts until we are ready to accept them */
 	
     OSInit();                                         /* Initialize "uC/OS-II, The Real-Time Kernel"              */

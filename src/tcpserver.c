@@ -39,7 +39,7 @@
 #endif
 
 #ifndef TCPSERVER_PORT_NO
-#define TCPSERVER_PORT_NO   5002    /* tcpserver 使用端口号 */
+#define TCPSERVER_PORT_NO   7		/*5002*/    /* tcpserver 使用端口号 */
 #endif
 /* Private macro -------------------------------------------------------------*/
 

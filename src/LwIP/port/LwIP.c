@@ -137,9 +137,9 @@ void Init_LwIP(void)
     gw.addr = 0;
 #else
 	/* ∆Ù”√æ≤Ã¨IP */
-	IP4_ADDR(&ipaddr, 192, 168, 1, 8);
+	IP4_ADDR(&ipaddr, 192, 168, 0, 10);
 	IP4_ADDR(&netmask, 255, 255, 255, 0);
-	IP4_ADDR(&gw, 192, 168, 1, 1);
+	IP4_ADDR(&gw, 192, 168, 0, 1);
 #endif
     
     Set_MAC_Address(macaddress);

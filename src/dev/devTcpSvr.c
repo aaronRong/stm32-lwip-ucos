@@ -157,7 +157,7 @@ void tcpServerInit ( void )
 
     /* 绑定本地IP地址和端口号 */
     //ret = tcp_bind ( pcb, IP_ADDR_ANY,  *(WORD *)&SysParam[ SP_LOCALPORT] ); 
-     ret = tcp_bind ( pcb, IP_ADDR_ANY,  5000 );  
+     ret = tcp_bind ( pcb, IP_ADDR_ANY,  80/*TCP_PORT*/ );  
 
     //printf( "\r\ntcp server bind port %d " , *(WORD *) &SysParam[ SP_LOCALPORT] );
 #endif
