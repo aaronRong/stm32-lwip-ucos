@@ -26,6 +26,7 @@ static err_t tcpSvr_err ( void *arg,  err_t err );
 *Êä³ö:
 *ËµÃ÷:
 *******************************************************************************/
+char *str = "I am aaron\n";
 static err_t tcpSvr_recv ( void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t err )
 {
    // char i;
@@ -45,6 +46,9 @@ static err_t tcpSvr_recv ( void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t
 
         memcpy ( TCP_DataBuf1 , p->payload , p->len );
         TCP_sav_num1 = p->len;
+				
+				memcpy ( TCP_DataBuf1 , str , 11 );
+        TCP_sav_num1 = 11;
         
        // gPubVal.bLastRs485CmdFromUart = false;
         

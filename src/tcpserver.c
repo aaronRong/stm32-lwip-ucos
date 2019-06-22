@@ -120,7 +120,7 @@ void tcpserv(void* parameter)
        /* 返回的是连接成功的socket */
 
        /* 接受返回的client_addr指向了客户端的地址信息 */
-       printf("I got a connection from (%s , %d)\n",
+       printf("I got a connection from (%s , %d)\n",\
                   inet_ntoa(client_addr.sin_addr),ntohs(client_addr.sin_port));
 
        /* 客户端连接的处理 */

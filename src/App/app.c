@@ -36,6 +36,7 @@ void App_TaskCreate(void)
 
     //LED µÆÉÁË¸ÈÎÎñ
 #if OS_TASK_CREATE_EXT_EN > 0
+#if 0
     OSTaskCreateExt((void (*)(void *)) App_TaskToggleLED,             /* Create the start task                                    */
                     (void           *) 0,
                     (OS_STK         *)&App_TaskToggleLEDStk[APP_CFG_TASK_ToggleLED_STK_SIZE - 1],
@@ -51,6 +52,7 @@ void App_TaskCreate(void)
            (OS_STK        * )&App_TaskToggleLED1Stk[APP_CFG_TASK_ToggleLED_STK_SIZE - 1],
            (INT8U           ) APP_CFG_TASK_ToggleLED1_PRIO
             );
+#endif
 #else    
     OSTaskCreate((void (*)(void *)) App_TaskToggleLED,
            (void          * ) 0,
