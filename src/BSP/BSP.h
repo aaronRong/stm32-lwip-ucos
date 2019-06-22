@@ -2,6 +2,15 @@
 #define _BSP_H__
 
 #include "includes.h"
+
+/* macros */
+#define RELAY_ONE_ON	(0UL)
+#define RELAY_ONE_OFF	(1UL)
+#define RELAY_TWO_ON	(2UL)
+#define RELAY_TWO_OFF	(3UL)
+#define RELAY_THREE_ON	(4UL)
+#define RELAY_THREE_OFF	(5UL)
+#define RELAY_CON_MAX	(6UL)
 /*
 *********************************************************************************************************
 *                                       外部函数声明

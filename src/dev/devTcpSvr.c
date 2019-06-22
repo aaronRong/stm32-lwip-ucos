@@ -4,14 +4,8 @@
 //#include "app.h"
 //#include "BSP.h"
 
-/* macros */
-#define RELAY_ONE_ON	0x00
-#define RELAY_ONE_OFF	0x01
-#define RELAY_TWO_ON	0x02
-#define RELAY_TWO_OFF	0x03
-#define RELAY_THREE_ON	0x04
-#define RELAY_THREE_OFF	0x05
-#define RELAY_CON_MAX	0x06
+/* todo: i am so confused about why i cannot use bsp.h and app.h */
+#define RELAY_STATE_SUM		(6UL)
 
 /* global variable */
 char tcpRecvBuf[100];
@@ -57,7 +51,7 @@ static err_t tcpSvr_recv ( void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t
 
         memcpy ( tcpRecvBuf , p->payload , p->len );
 		
-		for(i = 0; i < RELAY_CON_MAX; i++)
+		for(i = 0; i < RELAY_STATE_SUM; i++)
 		{
 			if(0 == strncmp(tcpRecvBuf, relay_tcp[i], p->len))
 			{
@@ -67,7 +61,7 @@ static err_t tcpSvr_recv ( void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t
 			}
 		}
 		
-		if(RELAY_CON_MAX == i)
+		if(RELAY_STATE_SUM == i)
 		{
 			tcp_write(gPcbLastConnectFromClient, "recv err", strlen("recv err"), 0);
 			tcp_output(gPcbLastConnectFromClient);		

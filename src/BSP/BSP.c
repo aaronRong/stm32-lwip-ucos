@@ -5,15 +5,6 @@
 #define PHY_ADDRESS       0x01 /* Relative to STM32F107 Board */
 #define MII_MODE
 //#define RMII_MODE          // STM32F107 connect PHY using RMII mode
-
-#define RELAY_ONE_ON	0x00
-#define RELAY_ONE_OFF	0x01
-#define RELAY_TWO_ON	0x02
-#define RELAY_TWO_OFF	0x03
-#define RELAY_THREE_ON	0x04
-#define RELAY_THREE_OFF	0x05
-#define RELAY_CON_MAX	0x06
-
 /*
 *********************************************************************************************************
 *                                       函数原型声明
