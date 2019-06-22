@@ -7,16 +7,34 @@
 #include <tcp.h>
 #include "DLT645.h"
 #include "devTcpip.h"
+#include "app.h"
+#include "BSP.h"
+#include "stm32f10x_gpio.h"
 
-/*当客户端发起一个tcp连接，保存其连接句柄，
-在rs485收到数据时，往这个句柄中写入数据*/
-struct tcp_pcb * gPcbLastConnectFromClient = NULL;
-
-uchar TCP_DataBuf1[100]={0};
-uchar TCP_sav_num1=0;
+/* global variable */
 unsigned int debugFlag = 1<<2;
-//void tcpsendend(void *arg, struct tcp_pcb *tpcb, u16_t len);
+char tcpRecvBuf[100];
+struct tcp_pcb * gPcbLastConnectFromClient = NULL;
 static err_t tcpSvr_err ( void *arg,  err_t err );
+
+const char relay_tcp[6][20] = {
+	"relay one on",
+	"relay one off",
+	"relay two on",
+	"relay two off",
+	"relay three on",
+	"relay three off",
+};
+
+const char relay_tcp_back[6][20] = {
+	"relay one on done",
+	"relay one off done",
+	"relay two on done",
+	"relay two off done",
+	"relay three on done",
+	"relay three off done",
+};
+
 /*******************************************************************************
 *函数名:
 　　tcpSvr_recv()
@@ -26,82 +44,82 @@ static err_t tcpSvr_err ( void *arg,  err_t err );
 *输出:
 *说明:
 *******************************************************************************/
-char *str = "I am aaron\n";
 static err_t tcpSvr_recv ( void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t err )
-{
-   // char i;
-
+{	/* todo: needs optimize, aaron.gao */
+	unsigned char i = 0;
+	
     if ( ( err == ERR_OK ) && ( p != NULL ))
     {
         gPcbLastConnectFromClient = pcb;
-
         /* Inform TCP that we have taken the data. */
         tcp_recved ( pcb, p->tot_len );
-        
+#if 0        
         if ( debugFlag & 0x01 )
         {
             printf ( "\r\n p->len %d/%d " , p->len, p->tot_len );
             printf ( "msg:[%s]" , p->payload );																		
         }
-
-        memcpy ( TCP_DataBuf1 , p->payload , p->len );
-        TCP_sav_num1 = p->len;
-				
-				memcpy ( TCP_DataBuf1 , str , 11 );
-        TCP_sav_num1 = 11;
+#endif
+        memcpy ( tcpRecvBuf , p->payload , p->len );
+		
+		if(0 == strncmp(tcpRecvBuf, relay_tcp[RELAY_ONE_ON], p->len))
+		{
+			BSP_Relay_ON(GPIO_Pin_11);
+			tcp_write(gPcbLastConnectFromClient, relay_tcp_back[RELAY_ONE_ON], strlen(relay_tcp_back[RELAY_ONE_ON]), 0);
+			tcp_output(gPcbLastConnectFromClient);			
+		}
+		else if(0 == strncmp(tcpRecvBuf, relay_tcp[RELAY_ONE_OFF], p->len))
+		{
+			BSP_Relay_OFF(GPIO_Pin_11);
+			tcp_write(gPcbLastConnectFromClient, relay_tcp_back[RELAY_ONE_OFF], strlen(relay_tcp_back[RELAY_ONE_OFF]), 0);
+			tcp_output(gPcbLastConnectFromClient);	
+		}
+		else if(0 == strncmp(tcpRecvBuf, relay_tcp[RELAY_TWO_ON], p->len))
+		{
+			BSP_Relay_ON(GPIO_Pin_12);
+			tcp_write(gPcbLastConnectFromClient, relay_tcp_back[RELAY_TWO_ON], strlen(relay_tcp_back[RELAY_TWO_ON]), 0);
+			tcp_output(gPcbLastConnectFromClient);	
+		}
+		else if(0 == strncmp(tcpRecvBuf, relay_tcp[RELAY_TWO_OFF], p->len))
+		{
+			BSP_Relay_OFF(GPIO_Pin_12);
+			tcp_write(gPcbLastConnectFromClient, relay_tcp_back[RELAY_TWO_OFF], strlen(relay_tcp_back[RELAY_TWO_OFF]), 0);
+			tcp_output(gPcbLastConnectFromClient);	
+		}
+		else if(0 == strncmp(tcpRecvBuf, relay_tcp[RELAY_THREE_ON], p->len))
+		{
+			BSP_Relay_ON(GPIO_Pin_13);
+			tcp_write(gPcbLastConnectFromClient, relay_tcp_back[RELAY_THREE_ON], strlen(relay_tcp_back[RELAY_THREE_ON]), 0);
+			tcp_output(gPcbLastConnectFromClient);	
+		}
+		else if(0 == strncmp(tcpRecvBuf, relay_tcp[RELAY_THREE_OFF], p->len))
+		{
+			BSP_Relay_OFF(GPIO_Pin_13);
+			tcp_write(gPcbLastConnectFromClient, relay_tcp_back[RELAY_THREE_OFF], strlen(relay_tcp_back[RELAY_THREE_OFF]), 0);
+			tcp_output(gPcbLastConnectFromClient);	
+		}
+		else
+		{
+			tcp_write(gPcbLastConnectFromClient, "recv err", strlen("recv err"), 0);
+			tcp_output(gPcbLastConnectFromClient);
+		}
         
-       // gPubVal.bLastRs485CmdFromUart = false;
-        
-        tcp_write(gPcbLastConnectFromClient, TCP_DataBuf1,TCP_sav_num1,0);
-        tcp_output(gPcbLastConnectFromClient);
-/*
-        //DLT645-2007
-        if(RxValidDataFrame(TCP_DataBuf,TCP_sav_num))
-        {           
-           
-            ClearDLT645SendBuf();
-            MeterCmdAnalysis1(TCP_DataBuf);//645格式命令解析 
-            tcp_write(gPcbLastConnectFromClient, Send645Buf,Send_645Buf_num,0);
-            tcp_output(gPcbLastConnectFromClient);
-            ClearDLT645RecvBuf();
-            //len = tcp_sndbuf(pcb);
-            //ClearDLT645SendBuf();
-            
-        }
-        else
-        {
-           // printf("false");
-        }*/
-        //喂一次狗，避免客户端多次访问一直占用CPU而重启
-       // WDog();
-        //gPubVal.iSvrNoCommCnt = 0;
-
-        //gPubVal.bTcpInComm += 10;
-
-        pbuf_free ( p );  //释放该TCP段
-       
-
+		pbuf_free ( p );  //释放该TCP段    
     }
-
-    if ( ( err == ERR_OK )  &&  ( p == NULL ) )
+    else if ( ( err == ERR_OK )  &&  ( p == NULL ) )
     {
         DBMTR( "\r\n close socket in recv \r\n" );
-
         tcp_recv ( pcb, NULL );        /* 设置TCP段到时的回调函数 */
-
         // tcp_err ( pcb, cli_conn_err );
-
         tcp_close ( pcb );
         gPcbLastConnectFromClient = NULL;
     }
-
-    if (err != ERR_OK)
+    else if (err != ERR_OK)
     {
-        DBMTR("");
-      
+        DBMTR("");    
     }
     
-//    tcp_close ( pcb );                                           /* 关闭这个连接 */
+	//tcp_close ( pcb );                                           /* 关闭这个连接 */
 
     err = ERR_OK; 
     return err;
@@ -122,14 +140,9 @@ static err_t devTcpSvr_accept ( void *arg, struct tcp_pcb *pcb, err_t err )
 
     tcp_setprio ( pcb, TCP_PRIO_MIN );  /* 设置回调函数优先级，当存在几个连接时特别重要，此函数必须调用*/
     tcp_recv ( pcb, tcpSvr_recv );        /* 设置TCP段到时的回调函数 */
-
-   tcp_err ( pcb,   tcpSvr_err );
-
+	tcp_err ( pcb,   tcpSvr_err );
     //gPcbLastConnectFromClient = pcb;
-
-
     //gPubVal.iSvrNoCommCnt = 0;
-
     //printf("test tcp\n");
     err = ERR_OK;
 
