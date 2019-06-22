@@ -6,6 +6,14 @@
 #define MII_MODE
 //#define RMII_MODE          // STM32F107 connect PHY using RMII mode
 
+#define RELAY_ONE_ON	0x00
+#define RELAY_ONE_OFF	0x01
+#define RELAY_TWO_ON	0x02
+#define RELAY_TWO_OFF	0x03
+#define RELAY_THREE_ON	0x04
+#define RELAY_THREE_OFF	0x05
+#define RELAY_CON_MAX	0x06
+
 /*
 *********************************************************************************************************
 *                                       函数原型声明
@@ -69,6 +77,37 @@ void BSP_RelayInit(void)
 	gpio_init.GPIO_Mode  = GPIO_Mode_Out_PP;
 	GPIO_Init(GPIOE, &gpio_init);
 	GPIO_SetBits(GPIOE, GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13);
+}
+/*
+*
+*/
+uint8_t BSP_Relay_Con(uint8_t relayVal)
+{	
+	switch(relayVal)
+	{
+		case RELAY_ONE_ON:
+			GPIO_SetBits(GPIOE, GPIO_Pin_11);
+			break;
+		case RELAY_ONE_OFF:
+			GPIO_ResetBits(GPIOE, GPIO_Pin_11);
+			break;
+		case RELAY_TWO_ON:
+			GPIO_SetBits(GPIOE, GPIO_Pin_12);
+			break;
+		case RELAY_TWO_OFF:
+			GPIO_ResetBits(GPIOE, GPIO_Pin_12);
+			break;
+		case RELAY_THREE_ON:
+			GPIO_SetBits(GPIOE, GPIO_Pin_13);
+			break;
+		case RELAY_THREE_OFF:
+			GPIO_ResetBits(GPIOE, GPIO_Pin_13);
+			break;
+		default:
+			return 1;
+	}
+	
+	return 0;
 }
 
 /*

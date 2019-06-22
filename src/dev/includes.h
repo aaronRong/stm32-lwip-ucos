@@ -96,13 +96,13 @@ extern tPubVal gPubVal;
 #define CMM_DEBUG_METER     (1<<2)
 #define CMM_DEBUG_SHELL     (1<<3)
 
-extern uint debugFlag;
+//extern uint debugFlag;
 
-#define _pl_   printf("\n%s L:%d " , __FUNCTION__ ,__LINE__);
-#define DBCMM(str)  if (debugFlag & CMM_DEBUG_COMM) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
-#define DBMTR(str)  if (debugFlag & CMM_DEBUG_METER) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
-#define DBSHL(str)  if (debugFlag & CMM_DEBUG_SHELL) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
-#define DBUDT(str)  if (debugFlag & CMM_DEBUG_UPDTE) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
+//#define _pl_   printf("\n%s L:%d " , __FUNCTION__ ,__LINE__);
+//#define DBCMM(str)  if (debugFlag & CMM_DEBUG_COMM) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
+//#define DBMTR(str)  if (debugFlag & CMM_DEBUG_METER) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
+//#define DBSHL(str)  if (debugFlag & CMM_DEBUG_SHELL) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
+//#define DBUDT(str)  if (debugFlag & CMM_DEBUG_UPDTE) printf("\n%s(%d): %s", __FUNCTION__, __LINE__, str)
 
 #define SPEED_UART_STD    115200
 #define SPEED_UART_HIGH   921600

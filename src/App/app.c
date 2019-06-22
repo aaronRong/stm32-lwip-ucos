@@ -65,31 +65,7 @@ void App_TaskCreate(void)
    
 }
 
-/*
- * 函数名：App_TaskToggleLED
- * 描  述：
- * 输  入：无
- * 输  出：无
- */
-static void App_TaskToggleLED(void *p_arg)
-{
-	(void)p_arg;
 
-	while(1)
-	{
-		BSP_LedToggle();
-		OSTimeDlyHMSM(0, 0, 1, 0);
-	}
-}
 
-static void App_TaskToggleLED1(void *p_arg)
-{
-	(void)p_arg;
 
-	while(1)
-	{
-		BSP_Led1Toggle();
-		OSTimeDlyHMSM(0, 0, 0, 500);
-	}
-}
 

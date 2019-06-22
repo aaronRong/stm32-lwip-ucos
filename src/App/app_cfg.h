@@ -21,7 +21,7 @@
 *********************************************************************************************************
 */
 
-#define  APP_CFG_TASK_START_STK_SIZE         1024	//128	
+#define  APP_CFG_TASK_START_STK_SIZE         512	//128	
 #define  APP_CFG_TASK_ToggleLED_STK_SIZE     128	//128
 
 #endif

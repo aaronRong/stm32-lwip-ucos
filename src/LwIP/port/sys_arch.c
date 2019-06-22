@@ -45,8 +45,7 @@ sys_sem_new(u8_t count)
 void
 sys_sem_signal(sys_sem_t sem)
 {
-    u8_t ucErr;
-    ucErr = OSSemPost((OS_EVENT *)sem);
+    OSSemPost((OS_EVENT *)sem);
     
     // May be called when a connection is already reset, should not check...
     // LWIP_ASSERT( "OSSemPost ", ucErr == OS_NO_ERR );
