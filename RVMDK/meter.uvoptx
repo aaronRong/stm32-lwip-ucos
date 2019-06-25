@@ -157,57 +157,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>119</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220164</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\src\dev\devTcpSvr.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\meter\../src/dev/devTcpSvr.c\119</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>134</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>134218136</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\src\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\meter\../src/main.c\134</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>82</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218158</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\src\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\meter\../src/main.c\82</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
           <LineNumber>146</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220944</Address>
+          <Address>134220808</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -219,11 +171,11 @@
           <Expression>\\meter\../src/tcpserver.c\146</Expression>
         </Bp>
         <Bp>
-          <Number>4</Number>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>270</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241270</Address>
+          <Address>134241130</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -235,7 +187,39 @@
           <Expression>\\meter\../src/LwIP/src/api/api_lib.c\270</Expression>
         </Bp>
         <Bp>
-          <Number>5</Number>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>64</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134218158</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\src\main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\meter\../src/main.c\64</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>115</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134218136</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\src\main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\meter\../src/main.c\115</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
           <Type>0</Type>
           <LineNumber>55</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -247,38 +231,6 @@
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
           <Filename>..\src\dev\devTcpSvr.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>6</Number>
-          <Type>0</Type>
-          <LineNumber>64</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\src\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>7</Number>
-          <Type>0</Type>
-          <LineNumber>115</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\src\main.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
@@ -333,12 +285,6 @@
       <pszMrulep></pszMrulep>
       <pSingCmdsp></pSingCmdsp>
       <pMultCmdsp></pMultCmdsp>
-      <SystemViewers>
-        <Entry>
-          <Name>System Viewer\ETHERNET_DMA</Name>
-          <WinId>35905</WinId>
-        </Entry>
-      </SystemViewers>
     </TargetOption>
   </Target>
 
@@ -376,7 +322,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>3</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\BSP\BSP.c</PathWithFileName>

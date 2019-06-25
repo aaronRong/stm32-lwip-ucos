@@ -57,7 +57,8 @@ static err_t tcpSvr_recv ( void *arg, struct tcp_pcb *pcb, struct pbuf *p, err_t
 			{
 				BSP_Relay_Con(i);
 				tcp_write(gPcbLastConnectFromClient, relay_tcp_back[i], strlen(relay_tcp_back[i]), 0);
-				tcp_output(gPcbLastConnectFromClient);			
+				tcp_output(gPcbLastConnectFromClient);
+				break;
 			}
 		}
 		
