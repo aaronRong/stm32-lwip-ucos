@@ -67,7 +67,7 @@ void BSP_RelayInit(void)
 	gpio_init.GPIO_Speed = GPIO_Speed_50MHz;
 	gpio_init.GPIO_Mode  = GPIO_Mode_Out_PP;
 	GPIO_Init(GPIOE, &gpio_init);
-	GPIO_SetBits(GPIOE, GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13);
+	GPIO_ResetBits(GPIOE, GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13);
 }
 /*
 *
